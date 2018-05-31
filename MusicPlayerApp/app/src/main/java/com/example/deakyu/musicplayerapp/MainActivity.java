@@ -20,6 +20,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -50,6 +53,20 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
     private SongViewModel songViewModel;
 
     // region Activity LifeCycle
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Toast.makeText(this, "sync", Toast.LENGTH_SHORT).show();
+        //songsFromDb.deleteAll();
+        return true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
